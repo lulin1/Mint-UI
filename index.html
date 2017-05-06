@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- 引入mint-ui样式 -->
+  <link rel="stylesheet" href="./node_modules/mint-ui/lib/style.css">
+  <link rel="stylesheet" href="./node_modules/vue-swipe/dist/vue-swipe.css">
+  <style type="text/css">
+    .my-swipe {
+      height: 200px;
+      color: #fff;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .slide1 {
+      background-color: #0089dc;
+      color: #fff;
+    }
+
+    .slide2 {
+      background-color: #ffd705;
+      color: #fff;
+    }
+
+    .slide3 {
+      background-color: #ff2d4b;
+      color: #fff;
+    }
+
+    #app {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="./node_modules/vue-swipe/dist/vue-swipe.js"></script>
+</head>
+<body>
+  <div id="container">
+    <swipe class="my-swipe">
+      <swipe-item class="slide1">1</swipe-item>
+      <swipe-item class="slide2">2</swipe-item>
+      <swipe-item class="slide3">3</swipe-item>
+    </swipe>
+    <br>
+  
+    <swipe class="my-swipe" :speed="900" :auto="0" >
+      <swipe-item class="slide1">A</swipe-item>
+      <swipe-item class="slide2">B</swipe-item>
+      <swipe-item class="slide3">C</swipe-item>
+    </swipe>  
+    <br>
+  
+    <swipe class="my-swipe" :speed="900" :auto="0" :show-indicators="false" :no-drag="true">
+      <swipe-item class="slide1">a</swipe-item>
+      <swipe-item class="slide2">b</swipe-item>
+      <swipe-item class="slide3">c</swipe-item>
+    </swipe>
+  </div>
+  
+  <div id="app">
+    <mt-button @click.native="handleClick">按钮</mt-button>
+  </div>
+</body>
+  <!-- 先引入 Vue -->
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <!-- 引入mint-ui组件库 -->
+  <script src="./node_modules/mint-ui/lib/index.js"></script>
+  <!-- 引入 toast组件的js文件 -->
+  <script src="./componetConfig/toast.config.js"></script>
+  <!-- 引入 swipe组件的js文件 -->
+  <script src="./componetConfig/swipe.config.js"></script>
+  <!-- 引入 indicator组件的js文件 -->
+  <script src="./componetConfig/indicator.config.js"></script>
+  
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        }
+      }
+    })
+  </script>
+</html>
